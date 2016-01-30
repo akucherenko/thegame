@@ -1,0 +1,41 @@
+steps:
+  -
+    hash: start
+    description: You stand in front of yellow door. Would you dare?
+    options:
+      - ["Sure", 1, "step-001", "Great adventure is waiting for you", null]
+      - ["I don't", 0, "finale", null, "Not every door shall be opened."]
+  -
+    hash: step-001
+    description: This door led you into a long hall. Choose the right path.
+    options:
+      - ["I'll go left", 0, "finale", null, "Left is not right. You step into a hidden trap."]
+      - ["I'll go right", 1, "step-002", null, null]
+  -
+    hash: step-002
+    description: You see a monster, which is ready to attack.
+    options:
+      - ["Run away", 0.4, "step-003", "You made it! Dreadful creature is left behind.", "You were fast, but not enough. Now you are dead."]
+      - ["Fight him with an axe", 0.6, "step-003", "You made it! Dreadful creature is dead.", "You were brave, but weak. Now you are dead."]
+      - ["Pretend dead", 0.2, "step-004", "That was pathetic, but you saved your life.", "That was stupid. Monster teared you apart."]
+  -
+    hash: step-003
+    description: "You enter a dark room. There is a hole with a ladder in a floor and also a door on your left."
+    options:
+      - ["We need to go deeper. In a hole.", 1, "step-005", null, null]
+      - ["Use the door", 0, "finale", null, "An arrow coming from a dark door opening kills you."]
+  -
+    hash: step-004
+    description: And now, would you go back? Or bravely face adventurous journey?
+    options:
+      - ["Nah, let's go back", 0, "finale", null, "You saw the monster again. This time dreadful creature kills you."]
+      - ["Yeah, I think I can do that!", 1, "step-003", null, null]
+  -
+    hash: step-005
+    description: There is a dungeon and extrodinary tresure were kept there all this time. You found it!
+    options:
+      - ["Grab it!", 1, "finale", "It was a tough journey, and now it's over. Enjoy your tresure", null]
+  -
+    hash: finale
+    description: ~
+    options: []
